@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="izenb">ZeroZabor!</string>
+    <string name="app_name">BerziklAPP</string>
+    <string name="bilatu_hondakina">Bilatu hondakina</string>
+    <string name="bilatzekoa">bilatzekoa</string>
+    <string name="Irudia">Irudia</string>
+    <string name="bilatu">Bilatu</string>
+    <string name="sartu_h">Sartu hondakina</string>
+    <string name="izena">Izena:</string>
+    <string name="Tokia">Tokia:</string>
+    <string name="Informazioa">Informazioa:</string>
+    <string name="Hondakina">Hondakina</string>
+    <string name="Itzuli">Itzuli</string>
+    <string name="todo">TODO</string>
+    <string name="hizkuntza_aldatu">Hizkuntza:</string>
+    <string name="insert_hondakina">Sartu hondakina</string>
+    <string name="where">non</string>
+    <string name="points">...</string>
+
+</resources>

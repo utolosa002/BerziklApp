@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="izenb">ZeroZabor!</string>
+    <string name="app_name">BerziklAPP</string>
+    <string name="bilatu_hondakina">Busque residuo</string>
+    <string name="bilatzekoa">para buscarlo</string>
+    <string name="Irudia">Imagen</string>
+    <string name="bilatu">Buscar</string>
+    <string name="sartu_h">Inserte el residuo</string>
+    <string name="izena">Nombre:</string>
+    <string name="Tokia">Dónde:</string>
+    <string name="Informazioa">Información:</string>
+    <string name="Hondakina">Residuo</string>
+    <string name="Itzuli">Volver</string>
+    <string name="todo">TODO</string>
+    <string name="points">...</string>
+    <string name="hizkuntza_aldatu">Idioma:</string>
+    <string name="insert_hondakina">Inserte el residuo</string>
+    <string name="where">dónde</string>
+
+</resources>
