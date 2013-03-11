@@ -23,7 +23,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     private SQLiteDatabase myDataBase; 
  
     private final Context myContext;
-	
+    
 	// hondakins table name
 	private static final String TABLE_HONDAKINAK_EU = "hondakineu";
 	private static final String TABLE_HONDAKINAK_ES = "hondakines";
