@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:gravity="center"
-                android:paddingLeft="4dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/bilatu_hondakina"
                 android:textColor="@color/Beltza"
                 android:textSize="20sp"
@@ -38,7 +39,7 @@
                 android:layout_gravity="bottom"
                 android:paddingLeft="10dp"
                 android:text="@string/bilatzekoa"
-                android:textColor="@color/Grisa" />
+                android:textColor="@color/Beltza" />
 
         </LinearLayout>
 
@@ -65,7 +66,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
                 android:text="@string/hizkuntza_aldatu"
-                android:textColor="@color/Grisa" />
+                android:textColor="@color/Beltza" />
 
             <ToggleButton
                 android:id="@+id/hizkuntza"
@@ -80,16 +81,22 @@
         </LinearLayout>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/bilatu"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/insert_hondakina"
-        android:inputType="textNoSuggestions" >
+        android:orientation="vertical" 
+        android:paddingLeft="10dp"
+         android:paddingRight="10dp" >
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/bilatu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/insert_hondakina"
+            android:inputType="textNoSuggestions" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/android:list"

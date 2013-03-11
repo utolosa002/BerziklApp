@@ -16,6 +16,8 @@ public final class R {
         public static final int Gorria=0x7f040005;
         public static final int Grisa=0x7f040002;
         public static final int Horia=0x7f040003;
+        public static final int Marroia=0x7f040008;
+        public static final int Morea=0x7f040007;
         public static final int Txuria=0x7f040001;
         public static final int Urdina=0x7f040004;
     }
@@ -35,16 +37,19 @@ public final class R {
     }
     public static final class id {
         public static final int bilatu=0x7f060004;
-        public static final int botoi=0x7f06000b;
+        public static final int botoi=0x7f06000e;
         public static final int hizkuntza=0x7f060003;
         public static final int imageView1=0x7f060005;
-        public static final int info=0x7f06000a;
-        public static final int izen=0x7f060006;
-        public static final int non=0x7f060008;
+        public static final int info=0x7f06000b;
+        public static final int izen=0x7f060007;
+        public static final int lla=0x7f060006;
+        public static final int non=0x7f060009;
+        public static final int ordu=0x7f06000d;
         public static final int tv0=0x7f060000;
         public static final int tv1=0x7f060001;
-        public static final int tv2=0x7f060007;
-        public static final int tv3=0x7f060009;
+        public static final int tv2=0x7f060008;
+        public static final int tv3=0x7f06000a;
+        public static final int tv4=0x7f06000c;
         public static final int tv5=0x7f060002;
     }
     public static final class layout {
@@ -65,6 +70,7 @@ public final class R {
         public static final int insert_hondakina=0x7f05000e;
         public static final int izena=0x7f050007;
         public static final int izenb=0x7f050000;
+        public static final int ordutegia=0x7f050011;
         public static final int points=0x7f050010;
         public static final int sartu_h=0x7f050006;
         public static final int todo=0x7f05000c;

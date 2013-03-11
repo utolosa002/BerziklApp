@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lla"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center|center_vertical"
-    android:background="@color/Grisa"
     android:gravity="left"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,9 +34,8 @@
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
                 android:text="@string/izena"
-                android:textColor="@color/Grisa" />
+                android:textColor="@color/Beltza" />
 
         </LinearLayout>
 
@@ -60,6 +61,8 @@
 
     <EditText
         android:id="@+id/izen"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
@@ -68,14 +71,17 @@
 
     <TextView
         android:id="@+id/tv2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
         android:text="@string/Tokia"
-        android:textColor="@color/Grisa" />
+        android:textColor="@color/Beltza" />
 
     <EditText
         android:id="@+id/non"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
@@ -84,26 +90,51 @@
 
     <TextView
         android:id="@+id/tv3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
         android:text="@string/Informazioa"
-        android:textColor="@color/Grisa" />
+       android:textColor="@color/Beltza" />
 
     <EditText
         android:id="@+id/info"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="0.28"
         android:clickable="false"
         android:focusable="false" 
-        android:hint="@string/points"/>
+        android:hint="@string/points"/> 
+        
 
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ordutegia"
+        android:textColor="@color/Beltza" /> 
+        
+    <EditText
+        android:id="@+id/ordu"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.28"
+        android:clickable="false"
+        android:focusable="false" 
+        android:hint="@string/points"/> 
+        
     <Button
         android:id="@+id/botoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Itzuli" >
+        android:text="@string/Itzuli"
+        android:padding="15dp">
     </Button>
 
 </LinearLayout>

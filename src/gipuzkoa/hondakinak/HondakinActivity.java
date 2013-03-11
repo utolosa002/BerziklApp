@@ -8,8 +8,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -117,7 +118,6 @@ et.addTextChangedListener(new TextWatcher(){
 	public void afterTextChanged(Editable s) {
 		// TODO Auto-generated method stub
 		db.close();
-		if (et.length() > 0) {
 			String st = et.getText().toString();
 			final ArrayList<String> hiz;
 			final ArrayList<Hondakina> h;
@@ -162,23 +162,8 @@ et.addTextChangedListener(new TextWatcher(){
 					startActivity(i);
 				}
 			});
-		} else {
-			String[] hiz = { "" };
-			ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-					getBaseContext(),
-					android.R.layout.simple_list_item_1, hiz);
-
-			setListAdapter(adapter);
-
-			ListView lv = getListView();
-			lv.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
-				}
-			});
-		}
+		
+		
 	
 	}
 
@@ -195,76 +180,6 @@ et.addTextChangedListener(new TextWatcher(){
 		
 	}});
 
-		et.setOnKeyListener(new View.OnKeyListener() {
-
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				db.close();
-				if (et.length() > 0) {
-					String s = et.getText().toString();
-					final ArrayList<String> hiz;
-					final ArrayList<Hondakina> h;
-					if(db.checkDataBase()==false){
-						try {
-							db.createDataBase();
-							db.close();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-					if (lang == "ES") {
-						System.out.println("ES "+getResources().getConfiguration().locale);
-						h = db.getResiduos(s);
-						hiz = db.getNombresResiduos(s);
-					} else {
-						System.out.println("EU locale: "+getResources().getConfiguration().locale);
-						h = db.getHondakinak(s);
-						hiz = db.getHondakinIzenak(s);
-					}
-				
-					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-							getBaseContext(),
-							android.R.layout.simple_list_item_1, hiz);
-
-					setListAdapter(adapter);
-
-					
-				
-					ListView lv = getListView();
-					// listening to single list item on click
-					lv.setOnItemClickListener(new OnItemClickListener() {
-						public void onItemClick(AdapterView<?> parent,
-								View view, int position, long id) {
-							Intent i = new Intent(getApplicationContext(),
-									HondakinHautatua.class);
-							Hondakina hon = (Hondakina) h.get(position);
-							i.putExtra("izen", (String) hon.getName());
-							i.putExtra("non", (String) hon.getNon());
-							i.putExtra("info", (String) hon.getInfo());
-							startActivity(i);
-						}
-					});
-				} else {
-					String[] hiz = { "" };
-					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-							getBaseContext(),
-							android.R.layout.simple_list_item_1, hiz);
-
-					setListAdapter(adapter);
-
-					ListView lv = getListView();
-					lv.setOnItemClickListener(new OnItemClickListener() {
-
-						@Override
-						public void onItemClick(AdapterView<?> arg0, View arg1,
-								int arg2, long arg3) {
-						}
-					});
-				}
-				return false;
-			}
-		});
 	}
 
 	@Override
@@ -292,7 +207,7 @@ et.addTextChangedListener(new TextWatcher(){
 				break;
 	case 2:
 		
-		Toast.makeText(this, "v1.2 -> 2013-01", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "v1.3 -> 2013-03", Toast.LENGTH_LONG).show();
 
 		break;
 	case 1:

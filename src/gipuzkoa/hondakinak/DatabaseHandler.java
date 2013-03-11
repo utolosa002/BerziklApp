@@ -158,10 +158,11 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
 		if (!str.matches(pattern)) {
-			str = " ";
+			if(str==""||str==null){
+		}else{str = " ";}
 		}
 		String selectQuery = "SELECT  * FROM " + TABLE_HONDAKINAK_EU
-				+ " WHERE izena LIKE '" + str + "%' LIMIT 10";
+				+ " WHERE izena LIKE '" + str + "%'";
 Cursor cursor = db.rawQuery(selectQuery, null);
 if (cursor.moveToFirst()) {
 		do {
@@ -184,11 +185,12 @@ if (cursor.moveToFirst()) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
 		if (!str.matches(pattern)) {
-			str = " ";
+			if(str==""||str==null){
+		}else{str = " ";}
 		}
 		String selectQuery = null;
 			selectQuery = "SELECT  * FROM " + TABLE_HONDAKINAK_ES
-					+ " WHERE izena LIKE '" + str + "%' LIMIT 10";
+					+ " WHERE izena LIKE '" + str + "%'";
 
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
@@ -212,10 +214,11 @@ if (cursor.moveToFirst()) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
 		if (!str.matches(pattern)) {
-			str = " ";
+			if(str==""||str==null){
+		}else{str = " ";}
 		}
 		String selectQuery = "SELECT " + KEY_NAME + " FROM " + TABLE_HONDAKINAK_EU
-					+ " WHERE izena LIKE '" + str + "%' LIMIT 10";
+					+ " WHERE izena LIKE '" + str + "%'";
 		
 		String Hizena;
 		Cursor cursor = db.rawQuery(selectQuery, null);
@@ -235,11 +238,13 @@ if (cursor.moveToFirst()) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
 		if (!str.matches(pattern)) {
-			str = " ";
+			if(str==""||str==null){
+		}else{str = " ";}
 		}
+		
 		String selectQuery;
 			selectQuery = "SELECT " + KEY_NAME + " FROM " + TABLE_HONDAKINAK_ES
-					+ " WHERE izena LIKE '" + str + "%' LIMIT 10";
+					+ " WHERE izena LIKE '" + str + "%'";
 		String Hizena;
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
