@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Beltza">#000000</color>
+    <color name="Txuria">#FFFFFF</color>
+    <color name="Grisa">#808080</color>
+    <color name="Horia">#FFFF00</color>
+    <color name="Urdina">#0000FF</color>
+    <color name="Gorria">#FF0000</color>
+    <color name="Berdea">#00FF00</color>
+    <color name="Morea">#FF00FF</color>
+    <color name="Marroia">#663300</color>
+    
+</resources>

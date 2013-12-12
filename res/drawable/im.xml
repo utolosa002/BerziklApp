@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/berdea" android:state_selected="true"/>
+    <item android:drawable="@drawable/beira"/>
+    <item android:drawable="@drawable/errefusa"/>
+    <item android:drawable="@drawable/errefusalezo"/>
+    <item android:drawable="@drawable/garbi"/>
+    <item android:drawable="@drawable/grisa"/>
+    <item android:drawable="@drawable/horia"/>
+    <item android:drawable="@drawable/marroia"/>
+    <item android:drawable="@drawable/morea"/>
+    <item android:drawable="@drawable/organikoa"/>
+    <item android:drawable="@drawable/organikoalezo"/>
+    <item android:drawable="@drawable/papera"/>
+    <item android:drawable="@drawable/paperalezo"/>
+    <item android:drawable="@drawable/plastikoalezo"/>
+    <item android:drawable="@drawable/plastikoa"/>
+    <item android:drawable="@drawable/urdina"/> 
+    <item android:drawable="@drawable/astea"/>
+<item android:drawable="@drawable/beiraizk"/>
+    <item android:drawable="@drawable/errefusaizk"/>
+<item android:drawable="@drawable/vidrioizk"/>
+    <item android:drawable="@drawable/rechazoizk"/>
+<item android:drawable="@drawable/organikoaizk"/>
+    <item android:drawable="@drawable/organicoizk"/>
+<item android:drawable="@drawable/paperaizk"/>
+    <item android:drawable="@drawable/papelizk"/>
+<item android:drawable="@drawable/ontziakizk"/>
+    <item android:drawable="@drawable/envasesizk"/>
+</selector>

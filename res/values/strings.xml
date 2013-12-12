@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="izenb">Atez-Ate!</string>
+    <string name="app_name">BerziklAPP</string>
+    <string name="bilatu_hondakina">Bilatu hondakina</string>
+    <string name="bilatzekoa">bilatzekoa</string>
+    <string name="Irudia">Irudia</string>
+    <string name="bilatu">Bilatu</string>
+    <string name="sartu_h">Sartu hondakina</string>
+    <string name="izena">Izena:</string>
+    <string name="Tokia">Tokia:</string>
+    <string name="Informazioa">Informazioa:</string>
+    <string name="Hondakina">Hondakina</string>
+    <string name="Itzuli">Itzuli</string>
+    <string name="todo">TODO</string>
+    <string name="hizkuntza_aldatu">Hizkuntza:</string>
+    <string name="insert_hondakina">Sartu hondakina</string>
+    <string name="where">non</string>
+    <string name="points">…</string>
+    <string name="ordutegia">Ordutegia</string>
+    <string name="title_activity_main">ActivityNagusia</string>
+    <string name="action_settings">Aukerak</string>
+    <string name="motak">Motak</string>
+    <string name="bilaketa">Bilaketa</string>
+    <string name="berriak">Berriak</string>
+    <string name="astegunak">Astegunak</string>
+    <string name="hizkuntza">Español</string>
+    <string name="menua">Menua</string>
+    <string name="title_activity_hmota">Hondakin Motak</string>
+	<string name="astekoegunak">Asteko Egunak</string>
+	<string name="jasotzeegunak">Jasotze Egunak</string>
+	<string name="adibideak">Adibideak:</string>
+</resources>
