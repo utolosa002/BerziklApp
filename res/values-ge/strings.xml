@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="izenb">ZeroZabor!</string>
+    <string name="izenb">Atez-Ate!</string>
     <string name="app_name">BerziklAPP</string>
     <string name="bilatu_hondakina">Busque residuo</string>
     <string name="bilatzekoa">para buscarlo</string>
@@ -18,6 +18,15 @@
     <string name="hizkuntza_aldatu">Idioma:</string>
     <string name="insert_hondakina">Inserte el residuo</string>
     <string name="where">dónde</string>
-     <string name="ordutegia">Horario</string>
-
+    <string name="ordutegia">Horario</string>
+    <string name="motak">Tipos</string>
+    <string name="bilaketa">Busqueda</string>
+    <string name="berriak">Noticias</string>
+    <string name="astegunak">Semana</string>
+    <string name="hizkuntza">Euskara</string>
+    <string name="menua">Menu</string>
+    <string name="title_activity_hmota">Tipos de residuos</string>
+    <string name="astekoegunak">Dias de la semana</string>
+    <string name="jasotzeegunak">Dias de recojida</string>
+    <string name="adibideak">Ejemplos:</string>
 </resources>
