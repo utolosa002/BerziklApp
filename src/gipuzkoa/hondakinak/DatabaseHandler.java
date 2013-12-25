@@ -15,24 +15,33 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
+	 
 	@SuppressLint("SdCardPath")
 	private static String DB_PATH = "/data/data/gipuzkoa.hondakinak/databases/";
+ 
     private static String DB_NAME = "hondakinak.db";
-    private SQLiteDatabase myDataBase;
-    private static final int DB_VERSION = 5;
+ 
+    private SQLiteDatabase myDataBase; 
+ 
     private final Context myContext;
+    
+	// hondakin taulak
 	private static final String TABLE_HONDAKINAK_EU = "hondakineu";
 	private static final String TABLE_HONDAKINAK_ES = "hondakines";
+
+	// hondakins Table Columns names
 	private static final String KEY_NAME = "izena";
 
     public DatabaseHandler(Context context) {
  
-    	super(context, DB_NAME, null, DB_VERSION);
+    	super(context, DB_NAME, null, 1);
         this.myContext = context;
     }	
  
     public void createDataBase() throws IOException{
-     	boolean dbExist = checkDataBase();   	
+ 
+    	boolean dbExist = checkDataBase();
+ 
     	if(dbExist){
     		System.out.println("ez egin ezer, dagoeneko existitzen da");
     	}else{
@@ -44,11 +53,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         		throw new Error("Error copying database");
         	}
     	}
+ 
     }
  
     public boolean checkDataBase(){
+ 
     	SQLiteDatabase checkDB = null;
     	try{
+    		
     		String myPath = DB_PATH + DB_NAME;
     		System.out.println("checking "+myPath);
     		checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
@@ -56,6 +68,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     	}catch(SQLiteException e){
     		System.out.println("datu basea ez da existitzen oraindik");
     	}
+ 
     	if(checkDB != null){
     		checkDB.close();
     	}
@@ -66,6 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     	InputStream myInput = myContext.getAssets().open("hondakinak.db");
     	String outFileName = DB_PATH + DB_NAME;
     	OutputStream myOutput = new FileOutputStream(outFileName);
+ 
     	//transfer bytes from the inputfile to the outputfile
     	byte[] buffer = new byte[1024];
     	int length;
@@ -75,7 +89,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     	myOutput.flush();
     	myOutput.close();
     	myInput.close();
-    }  
+ 
+    }
  
     public void openDataBase() throws SQLException{
         String myPath = DB_PATH + DB_NAME;
@@ -84,9 +99,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
  
     @Override
 	public synchronized void close() {
+ 
     	    if(myDataBase != null)
     		    myDataBase.close();
+ 
     	    super.close();
+ 
 	}
  
     @Override
@@ -106,7 +124,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
             }       
         }
     }
-	public ArrayList<Hondakina> getHondakinak(String str,String zutabe) {
+	public ArrayList<Hondakina> getHondakinak(String str,String zutabe)  throws IOException {
 		ArrayList<Hondakina> hondakinList = new ArrayList<Hondakina>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
@@ -134,7 +152,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		return hondakinList;
 	}
 
-	public ArrayList<Hondakina> getResiduos(String str,String zutabe) {
+	public ArrayList<Hondakina> getResiduos(String str,String zutabe)  throws IOException {
 		ArrayList<Hondakina> hondakinList = new ArrayList<Hondakina>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
@@ -163,7 +181,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		return hondakinList;
 	}
 
-	public ArrayList<String> getHondakinIzenak(String bilatzekoa,String where) {
+	public ArrayList<String> getHondakinIzenak(String bilatzekoa,String where) throws IOException {
 		ArrayList<String> hondakinList = new ArrayList<String>();
  		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
@@ -175,7 +193,9 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 					+ " WHERE " + where + " LIKE '" + bilatzekoa + "%' ORDER BY "+ KEY_NAME +"";
 		
 		String Hizena;
-		Cursor cursor = db.rawQuery(selectQuery, null);
+		Cursor cursor;
+		cursor = db.rawQuery(selectQuery, null);
+		
 		if (cursor.moveToFirst()) {
 			do {
 				Hizena = cursor.getString(0);
@@ -186,7 +206,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		// return hondakin list
 		return hondakinList;
 	}	
-	public ArrayList<String> getNombresResiduos(String bilatzekoa,String where) {
+	public ArrayList<String> getNombresResiduos(String bilatzekoa,String where) throws IOException {
 		ArrayList<String> hondakinList = new ArrayList<String>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		String pattern = "[a-zA-Z]*[- ()]*[a-zA-Z]*";
@@ -218,7 +238,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-	 	try {
+		try {
 			createDataBase();
 		} catch (IOException e) {
     		throw new Error("Error creating database");
