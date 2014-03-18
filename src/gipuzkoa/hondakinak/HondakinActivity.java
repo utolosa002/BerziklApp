@@ -8,6 +8,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -43,10 +44,7 @@ public class HondakinActivity extends ListActivity {
 	private RelativeLayout menuPanel;
 	private int panelWidth;
 	private ImageView menuViewButton;
-<<<<<<< HEAD
 	ArrayList<Hondakina> h = null;
-=======
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 	Button bilaketa;
 	Button hizkuntza;
 	Button motak;
@@ -62,11 +60,7 @@ public class HondakinActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		outState.putString("TEXT", et.getText().toString());
 		outState.putString("LANG", lang);
-<<<<<<< HEAD
 		super.onSaveInstanceState(outState);
-=======
-super.onSaveInstanceState(outState);
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 	}
 
 	@Override
@@ -98,10 +92,6 @@ super.onSaveInstanceState(outState);
 		Resources res = getResources();
 		Configuration conf = res.getConfiguration();
 		Locale myLocale = new Locale("ge");
-<<<<<<< HEAD
-		
-=======
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		// //////////////////////////////////
 		metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -176,13 +166,7 @@ super.onSaveInstanceState(outState);
 				}
 				db.close();
 				et.setTextColor(Color.BLACK);
-<<<<<<< HEAD
-				
 				ArrayList<String> hiz = null;
-=======
-				final ArrayList<Hondakina> h;
-				final ArrayList<String> hiz;
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 				if (db.checkDataBase() == false) {
 					try {
 						db.createDataBase();
@@ -195,49 +179,68 @@ super.onSaveInstanceState(outState);
 				if (lang == "ES") {
 					System.out.println("ES "
 							+ getResources().getConfiguration().locale);
-<<<<<<< HEAD
 					try {
 						h = db.getResiduos(st,"izena");
 						hiz = db.getNombresResiduos(st,"izena");
-					} catch (IOException e) {
+					} catch (SQLiteException e) {
 						// TODO Auto-generated catch block
 						db.dropDB();
 						try {
 							db.createDataBase();
 							h = db.getResiduos(st,"izena");
 							hiz = db.getNombresResiduos(st,"izena");
+						} catch (SQLiteException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				} else {
 					System.out.println("EU locale: "
 							+ getResources().getConfiguration().locale);
 					try {
-						h = db.getHondakinak(st,"izena");
-						hiz = db.getHondakinIzenak(st,"izena");
-					} catch (IOException e) {
+						try {
+							h = db.getHondakinak(st,"izena");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						try {
+							hiz = db.getHondakinIzenak(st,"izena");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (SQLiteException e) {
 						// TODO Auto-generated catch block
 						db.dropDB();
 						try {
-							db.createDataBase();
-							h = db.getHondakinak(st,"izena");
+							try {
+								db.createDataBase();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							try {
+								h = db.getHondakinak(st,"izena");
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							hiz = db.getHondakinIzenak(st,"izena");
+						} catch (SQLiteException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 					}
-=======
-					h = db.getResiduos(st,"izena");
-					hiz = db.getNombresResiduos(st,"izena");
-				} else {
-					System.out.println("EU locale: "
-							+ getResources().getConfiguration().locale);
-					h = db.getHondakinak(st,"izena");
-					hiz = db.getHondakinIzenak(st,"izena");
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 				}
 
 				ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -254,10 +257,6 @@ super.onSaveInstanceState(outState);
 							int position, long id) {
 						Intent i = new Intent(getApplicationContext(),
 								HondakinHautatua.class);
-<<<<<<< HEAD
-						
-=======
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 						Hondakina hon = (Hondakina) h.get(position);
 						i.putExtra("izen", (String) hon.getName());
 						i.putExtra("non", (String) hon.getNon());
@@ -304,10 +303,6 @@ super.onSaveInstanceState(outState);
 			}
 		});
 		bilaketa.setOnClickListener(new OnClickListener() {
-<<<<<<< HEAD
-=======
-
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -319,17 +314,13 @@ super.onSaveInstanceState(outState);
 						0.0f);
 			}
 		});
-<<<<<<< HEAD
-=======
-
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		hizkuntza.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				System.out.println("clik lang= " + lang + " locale: "
 						+ getResources().getConfiguration().locale);
-				if (lang == "EU") {
+				if (lang == "EU") { 
 					db.close();
 					lang = "ES";
 					Toast.makeText(HondakinActivity.this, "Idioma: Español",
@@ -346,10 +337,6 @@ super.onSaveInstanceState(outState);
 			}
 			
 		});
-<<<<<<< HEAD
-=======
-
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		menuViewButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if (!isExpanded) {

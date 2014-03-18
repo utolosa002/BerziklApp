@@ -1,13 +1,11 @@
 package gipuzkoa.hondakinak;
 
-<<<<<<< HEAD
 import java.io.IOException;
-=======
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -155,15 +153,20 @@ public class hMotaHautatua extends ListActivity {
 			im.setImageResource(irudia);
 		}
 		if (HondakinActivity.lang == "ES") {
-<<<<<<< HEAD
 			try {
 				hiz = db.getNombresResiduos(mota, "non");
-			} catch (IOException e) {
+			} catch (SQLiteException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+				} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
 				h = db.getResiduos(mota, "non");
+			} catch (SQLiteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -171,23 +174,24 @@ public class hMotaHautatua extends ListActivity {
 		} else {
 			try {
 				hiz = db.getHondakinIzenak(mota, "non");
+			} catch (SQLiteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				h = db.getHondakinak(mota, "non");
-			} catch (IOException e) {
+				try {
+					h = db.getHondakinak(mota, "non");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (SQLiteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-=======
-			hiz = db.getNombresResiduos(mota, "non");
-			h = db.getResiduos(mota, "non");
-		} else {
-			hiz = db.getHondakinIzenak(mota, "non");
-			h = db.getHondakinak(mota, "non");
->>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				getBaseContext(), android.R.layout.simple_list_item_1, hiz);
