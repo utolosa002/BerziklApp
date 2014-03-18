@@ -43,7 +43,10 @@ public class HondakinActivity extends ListActivity {
 	private RelativeLayout menuPanel;
 	private int panelWidth;
 	private ImageView menuViewButton;
+<<<<<<< HEAD
 	ArrayList<Hondakina> h = null;
+=======
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 	Button bilaketa;
 	Button hizkuntza;
 	Button motak;
@@ -59,7 +62,11 @@ public class HondakinActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		outState.putString("TEXT", et.getText().toString());
 		outState.putString("LANG", lang);
+<<<<<<< HEAD
 		super.onSaveInstanceState(outState);
+=======
+super.onSaveInstanceState(outState);
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 	}
 
 	@Override
@@ -91,7 +98,10 @@ public class HondakinActivity extends ListActivity {
 		Resources res = getResources();
 		Configuration conf = res.getConfiguration();
 		Locale myLocale = new Locale("ge");
+<<<<<<< HEAD
 		
+=======
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		// //////////////////////////////////
 		metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -166,8 +176,13 @@ public class HondakinActivity extends ListActivity {
 				}
 				db.close();
 				et.setTextColor(Color.BLACK);
+<<<<<<< HEAD
 				
 				ArrayList<String> hiz = null;
+=======
+				final ArrayList<Hondakina> h;
+				final ArrayList<String> hiz;
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 				if (db.checkDataBase() == false) {
 					try {
 						db.createDataBase();
@@ -180,6 +195,7 @@ public class HondakinActivity extends ListActivity {
 				if (lang == "ES") {
 					System.out.println("ES "
 							+ getResources().getConfiguration().locale);
+<<<<<<< HEAD
 					try {
 						h = db.getResiduos(st,"izena");
 						hiz = db.getNombresResiduos(st,"izena");
@@ -213,6 +229,15 @@ public class HondakinActivity extends ListActivity {
 							e1.printStackTrace();
 						}
 					}
+=======
+					h = db.getResiduos(st,"izena");
+					hiz = db.getNombresResiduos(st,"izena");
+				} else {
+					System.out.println("EU locale: "
+							+ getResources().getConfiguration().locale);
+					h = db.getHondakinak(st,"izena");
+					hiz = db.getHondakinIzenak(st,"izena");
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 				}
 
 				ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -229,7 +254,10 @@ public class HondakinActivity extends ListActivity {
 							int position, long id) {
 						Intent i = new Intent(getApplicationContext(),
 								HondakinHautatua.class);
+<<<<<<< HEAD
 						
+=======
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 						Hondakina hon = (Hondakina) h.get(position);
 						i.putExtra("izen", (String) hon.getName());
 						i.putExtra("non", (String) hon.getNon());
@@ -276,6 +304,10 @@ public class HondakinActivity extends ListActivity {
 			}
 		});
 		bilaketa.setOnClickListener(new OnClickListener() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -287,6 +319,10 @@ public class HondakinActivity extends ListActivity {
 						0.0f);
 			}
 		});
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		hizkuntza.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -310,6 +346,10 @@ public class HondakinActivity extends ListActivity {
 			}
 			
 		});
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		menuViewButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if (!isExpanded) {

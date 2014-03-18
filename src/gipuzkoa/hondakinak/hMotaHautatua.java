@@ -1,6 +1,9 @@
 package gipuzkoa.hondakinak;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.app.ListActivity;
@@ -152,6 +155,7 @@ public class hMotaHautatua extends ListActivity {
 			im.setImageResource(irudia);
 		}
 		if (HondakinActivity.lang == "ES") {
+<<<<<<< HEAD
 			try {
 				hiz = db.getNombresResiduos(mota, "non");
 			} catch (IOException e) {
@@ -177,6 +181,13 @@ public class hMotaHautatua extends ListActivity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+=======
+			hiz = db.getNombresResiduos(mota, "non");
+			h = db.getResiduos(mota, "non");
+		} else {
+			hiz = db.getHondakinIzenak(mota, "non");
+			h = db.getHondakinak(mota, "non");
+>>>>>>> c4383c9500fb96e972bb52fb01c57a4ffa142ac6
 		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				getBaseContext(), android.R.layout.simple_list_item_1, hiz);
