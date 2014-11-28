@@ -14,41 +14,7 @@ import android.widget.TextView;
 
 @SuppressLint("NewApi")
 public class HondakinHautatua extends Activity {
-	// getting attached intent data
-	/*String izen,info,non="";
-	Intent i;
-	@Override
-	protected void onSaveInstanceState(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		i = new Intent(getApplicationContext(),
-				this.getClass());
-		i.putExtra("izen", izen.toString());
-		i.putExtra("non", non.toString());
-		i.putExtra("info", info.toString());
-		savedInstanceState.putString("LANG", HondakinActivity.lang);
-		savedInstanceState.putAll(savedInstanceState);
-		super.onSaveInstanceState(savedInstanceState);
 
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		HondakinActivity.lang = (savedInstanceState.getString("LANG"));
-		if (HondakinActivity.lang=="ES"){
-			setLocale("ge");
-		}else{
-			setLocale("");
-		}
-
-		i = getIntent();
-		// getting attached intent data
-		izen = i.getStringExtra("izen");
-		info = i.getStringExtra("info");
-		non = i.getStringExtra("non");
-		super.onRestoreInstanceState(savedInstanceState);
-	}
-*/
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

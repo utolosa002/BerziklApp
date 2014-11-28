@@ -2,7 +2,7 @@ package gipuzkoa.hondakinak;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import android.annotation.SuppressLint;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
@@ -19,17 +19,13 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class hMotaHautatua extends ListActivity {
+	ArrayList<Hondakina> h = null;
 
-	private ArrayList<String> hiz;
-	private ArrayList<Hondakina> h;
-
-	public final DatabaseHandler db = new DatabaseHandler(this);
-
-	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.hmota1);
+		ArrayList<String> hiz=new ArrayList<String>();
 		LinearLayout llall = (LinearLayout) findViewById(R.id.llall);
 		TextView txtIzen = (TextView) findViewById(R.id.izen);
 		TextView tit = (TextView) findViewById(R.id.tv0);
@@ -152,9 +148,9 @@ public class hMotaHautatua extends ListActivity {
 			llall.setBackgroundColor(Color.parseColor("#FFFFFF"));
 			im.setImageResource(irudia);
 		}
-		if (HondakinActivity.lang == "ES") {
+		if (MainActivity.lang == "ES") {
 			try {
-				hiz = db.getNombresResiduos(mota, "non");
+				hiz = HondakinFragment.db.getNombresResiduos(mota, "non");
 			} catch (SQLiteException ex) {
 				// TODO Auto-generated catch block
 				ex.printStackTrace();
@@ -163,7 +159,7 @@ public class hMotaHautatua extends ListActivity {
 				e.printStackTrace();
 			}
 			try {
-				h = db.getResiduos(mota, "non");
+				h = HondakinFragment.db.getResiduos(mota, "non");
 			} catch (SQLiteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -173,7 +169,7 @@ public class hMotaHautatua extends ListActivity {
 			}
 		} else {
 			try {
-				hiz = db.getHondakinIzenak(mota, "non");
+				hiz = HondakinFragment.db.getHondakinIzenak(mota, "non");
 			} catch (SQLiteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -183,7 +179,7 @@ public class hMotaHautatua extends ListActivity {
 			}
 			try {
 				try {
-					h = db.getHondakinak(mota, "non");
+					h = HondakinFragment.db.getHondakinak(mota, "non");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -194,7 +190,7 @@ public class hMotaHautatua extends ListActivity {
 			}
 		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-				getBaseContext(), android.R.layout.simple_list_item_1, hiz);
+				this, android.R.layout.simple_list_item_1, hiz);
 		setListAdapter(adapter);
 		lv = this.getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -212,7 +208,6 @@ public class hMotaHautatua extends ListActivity {
 			}
 		});
 		im.setOnClickListener(new View.OnClickListener() {
-			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
 				finish();

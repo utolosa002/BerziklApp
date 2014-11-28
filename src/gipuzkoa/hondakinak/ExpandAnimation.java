@@ -3,7 +3,6 @@
  * 	Free for modification and distribution
  */
 
-
 package gipuzkoa.hondakinak;
 
 import android.view.Gravity;
